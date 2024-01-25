@@ -1,4 +1,5 @@
 import 'package:fake_ecommerce_store_with_bloc/blocs/category_bloc/category_bloc.dart';
+import 'package:fake_ecommerce_store_with_bloc/blocs/products_by_category_bloc/products_by_category_bloc.dart';
 import 'package:fake_ecommerce_store_with_bloc/screens/category_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => CategoryBloc()..add(LoadCategoriesEvent())),
+        BlocProvider(create: (context) => ProductsByCategoryBloc()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

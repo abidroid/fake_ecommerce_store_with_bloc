@@ -1,7 +1,7 @@
 class ProductModel {
   int? id;
   String? title;
-  int? price;
+  num? price;
   String? description;
   String? category;
   String? image;
@@ -35,7 +35,7 @@ class ProductModel {
 }
 
 class Rating {
-  double? rate;
+  num? rate;
   int? count;
 
   Rating({this.rate, this.count});
@@ -52,27 +52,3 @@ class Rating {
     return data;
   }
 }
-
-
-/*
-part of 'products_by_category_bloc.dart';
-
-sealed class ProductsByCategoryState extends Equatable {
-  const ProductsByCategoryState();
-
-  @override
-  List<Object> get props => [];
-}
-
-final class ProductsByCategoryInitial extends ProductsByCategoryState {}
-
-class ProductsByCategoryLoadingState extends ProductsByCategoryState {}
-
-class ProductsByCategoryLoadedState extends ProductsByCategoryState {
-  final List<ProductModel> products;
-  const ProductsByCategoryLoadedState({required this.products});
-}
-
-class ProductsByCategoryErrorState extends ProductsByCategoryState {}
-
-*/
