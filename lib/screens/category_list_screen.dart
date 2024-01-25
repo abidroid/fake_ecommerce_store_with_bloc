@@ -55,7 +55,7 @@ class CategoryListScreen extends StatelessWidget {
                             state.categories[index],
                             textAlign: TextAlign.center,
                             style: const TextStyle(
-                              fontSize: 30,
+                              fontSize: 24,
                             ),
                           ),
                         ),
