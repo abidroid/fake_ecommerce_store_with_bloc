@@ -17,6 +17,7 @@ class CategoryRepository {
           categories.add(jsonCategory.toString());
         }
 
+        print(categories);
         return categories;
       } else {
         throw Exception('Not Found');
