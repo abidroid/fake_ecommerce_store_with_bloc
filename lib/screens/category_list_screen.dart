@@ -1,4 +1,5 @@
 import 'package:fake_ecommerce_store_with_bloc/blocs/category_bloc/category_bloc.dart';
+import 'package:fake_ecommerce_store_with_bloc/screens/products_by_category_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,16 +40,23 @@ class CategoryListScreen extends StatelessWidget {
                   mainAxisSpacing: 10,
                 ),
                 itemBuilder: (context, index) {
-                  return Card(
-                    color: Colors.amber,
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Text(
-                          state.categories[index],
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: 30,
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                        return ProductsByCategoryScreen(category: state.categories[index]);
+                      }));
+                    },
+                    child: Card(
+                      color: Colors.amber,
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Text(
+                            state.categories[index],
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 30,
+                            ),
                           ),
                         ),
                       ),
