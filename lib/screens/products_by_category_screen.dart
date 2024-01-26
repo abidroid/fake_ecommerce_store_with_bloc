@@ -3,6 +3,7 @@ import 'package:fake_ecommerce_store_with_bloc/models/product_model.dart';
 import 'package:fake_ecommerce_store_with_bloc/widgets/product_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class ProductsByCategoryScreen extends StatefulWidget {
   final String category;
@@ -27,7 +28,7 @@ class _ProductsByCategoryScreenState extends State<ProductsByCategoryScreen> {
         builder: (context, state) {
           if (state is ProductsByCategoryLoadingState) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: SpinKitChasingDots(color: Colors.amber,),
             );
           }
 
