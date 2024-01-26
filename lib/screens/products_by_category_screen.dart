@@ -1,5 +1,6 @@
 import 'package:fake_ecommerce_store_with_bloc/blocs/products_by_category_bloc/products_by_category_bloc.dart';
 import 'package:fake_ecommerce_store_with_bloc/models/product_model.dart';
+import 'package:fake_ecommerce_store_with_bloc/widgets/product_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -45,13 +46,12 @@ class _ProductsByCategoryScreenState extends State<ProductsByCategoryScreen> {
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
+                  mainAxisExtent: 350,
                 ),
                 itemBuilder: (context, index) {
                   ProductModel product = state.products[index];
 
-                  return Card(
-                    child: Column(children: [Image.network(product.image!)]),
-                  );
+                  return ProductWidget(product: product);
                 },
               ),
             );
