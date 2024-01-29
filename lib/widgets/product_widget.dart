@@ -6,68 +6,58 @@ class ProductWidget extends StatelessWidget {
   const ProductWidget({
     super.key,
     required this.product,
+    required this.onTap,
   });
 
   final ProductModel product;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Stack(
-            children: [
-              Image.network(
-                product.image!,
-                height: 200,
-                width: double.infinity,
-                fit: BoxFit.fill,
-              ),
-              Positioned(
-                  right: 10,
-                  top: 10,
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.favorite,
-                      color: Colors.red,
-                      size: 30,
-                    ),
-                  ))
-            ],
-          ),
-          const Gap(8),
-          Text(
-            product.title!,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-          const Gap(8),
-          Text(
-            'Rs. ${product.price}',
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-          const Gap(8),
-          Text(
-            '${product.rating!.count} Sold',
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-          const Gap(8),
-          Row(
-            children: [
-              const Icon(Icons.star),
-              const Gap(4),
-              Text(
-                '${product.rating!.rate!}',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ],
-          ),
-        ]),
+    return GestureDetector(
+      onTap: onTap,
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Image.network(
+              product.image!,
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.fill,
+            ),
+            const Gap(8),
+            Text(
+              product.title!,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const Gap(8),
+            Text(
+              'Rs. ${product.price}',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const Gap(8),
+            Text(
+              '${product.rating!.count} Sold',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const Gap(8),
+            Row(
+              children: [
+                const Icon(Icons.star),
+                const Gap(4),
+                Text(
+                  '${product.rating!.rate!}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+          ]),
+        ),
       ),
     );
   }
