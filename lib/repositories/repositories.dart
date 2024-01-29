@@ -51,3 +51,26 @@ class ProductRepository {
     }
   }
 }
+
+class AllProductsRepository {
+  Future<List<ProductModel>> getAllProducts() async {
+    try {
+      http.Response response = await http.get(Uri.parse(getAllProductUrl));
+
+      if (response.statusCode == 200) {
+        var jsonResponse = jsonDecode(response.body);
+
+        List<ProductModel> products = [];
+        for (var jsonProduct in jsonResponse) {
+          ProductModel productModel = ProductModel.fromJson(jsonProduct);
+          products.add(productModel);
+        }
+        return products;
+      } else {
+        throw Exception('Not Found');
+      }
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
+}
