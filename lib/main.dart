@@ -1,3 +1,4 @@
+import 'package:fake_ecommerce_store_with_bloc/blocs/all_products_bloc/all_products_bloc.dart';
 import 'package:fake_ecommerce_store_with_bloc/blocs/category_bloc/category_bloc.dart';
 import 'package:fake_ecommerce_store_with_bloc/blocs/products_by_category_bloc/products_by_category_bloc.dart';
 import 'package:fake_ecommerce_store_with_bloc/screens/category_list_screen.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => CategoryBloc()..add(LoadCategoriesEvent())),
         BlocProvider(create: (context) => ProductsByCategoryBloc()),
+        BlocProvider(create: (context) => AllProductsBloc()..add(LoadAllProductsEvent()))
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

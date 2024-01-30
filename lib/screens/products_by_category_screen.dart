@@ -1,5 +1,6 @@
 import 'package:fake_ecommerce_store_with_bloc/blocs/products_by_category_bloc/products_by_category_bloc.dart';
 import 'package:fake_ecommerce_store_with_bloc/models/product_model.dart';
+import 'package:fake_ecommerce_store_with_bloc/screens/all_products_screen.dart';
 import 'package:fake_ecommerce_store_with_bloc/screens/product_detail_screen.dart';
 import 'package:fake_ecommerce_store_with_bloc/widgets/product_widget.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,18 @@ class _ProductsByCategoryScreenState extends State<ProductsByCategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Products')),
+      appBar: AppBar(
+        title: const Text('Products'),
+        actions: [
+          OutlinedButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                  return const AllProductsScreen();
+                }));
+              },
+              child: const Text('View All'))
+        ],
+      ),
       body: BlocBuilder<ProductsByCategoryBloc, ProductsByCategoryState>(
         builder: (context, state) {
           if (state is ProductsByCategoryLoadingState) {
